@@ -7,6 +7,7 @@ export {
   getSlotToolDescriptors,
   getToolDescriptor
 } from './descriptor'
+export { resolveSlotDisplayText } from './display'
 export { parseTemplate } from './parser'
 export { defineWar3Preset } from './preset'
 export { War3Registry } from './registry'

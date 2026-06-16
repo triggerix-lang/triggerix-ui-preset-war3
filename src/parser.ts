@@ -31,7 +31,8 @@ export function parseTemplate(
         key,
         label: slotDef.label,
         tools: slotDef.tools,
-        value: entry?.value ?? null
+        value: entry?.value ?? null,
+        entry: entry ?? undefined
       })
     }
     else {

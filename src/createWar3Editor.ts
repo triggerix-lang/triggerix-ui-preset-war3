@@ -28,6 +28,9 @@ export interface War3Editor extends Editor<War3EditorState> {
   registerCondition: (def: War3ConditionDef) => void
   registerTool: (name: string, def: ToolDef) => void
 
+  // 注册表访问
+  getRegistry: () => War3Registry
+
   // 查询
   getAvailableEvents: () => War3EventDef[]
   getAvailableActions: () => War3ActionDef[]
@@ -76,6 +79,9 @@ export function createWar3Editor(): War3Editor {
     registerAction: def => registry.registerAction(def),
     registerCondition: def => registry.registerCondition(def),
     registerTool: (name, def) => registry.registerTool(name, def),
+
+    // --- 注册表访问 ---
+    getRegistry: () => registry,
 
     // --- 查询 ---
     getAvailableEvents: () => registry.getEvents(),

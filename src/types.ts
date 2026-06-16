@@ -1,4 +1,8 @@
-import type { BaseItemDef } from '@triggerix/editor'
+// Base interface for item definitions
+interface BaseItemDef {
+  type: string
+  label?: string
+}
 
 // --- 槽位系统 ---
 export interface SlotDef {
@@ -16,7 +20,7 @@ export interface SlotValueEntry {
 export interface LeafToolInput {
   type: 'text' | 'number' | 'select'
   placeholder?: string
-  options?: Array<{ value: string, label: string }>
+  options?: Array<{ value: unknown, label: string }>
 }
 
 export interface LeafToolDef {
@@ -53,9 +57,9 @@ export interface War3ConditionDef extends BaseItemDef {
 }
 
 // --- 描述符/段 ---
-export type Segment
-  = | { type: 'text', content: string }
-    | { type: 'slot', key: string, label: string, tools: string[], value: unknown }
+export type Segment =
+  | { type: 'text', content: string }
+  | { type: 'slot', key: string, label: string, tools: string[], value: unknown, entry?: SlotValueEntry }
 
 export interface ItemDescriptor {
   type: string
