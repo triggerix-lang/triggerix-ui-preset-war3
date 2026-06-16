@@ -29,7 +29,9 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint --cache",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@triggerix/core": "^0.0.4",
