@@ -1,11 +1,11 @@
-import type { War3Registry } from './registry'
+import type { War3Registry } from '../core/registry'
 import type {
   ItemDescriptor,
   SlotDef,
   SlotValueEntry,
   ToolDescriptor
-} from './types'
-import { parseTemplate } from './parser'
+} from '../core/types'
+import { parseTemplate } from '../core/parser'
 
 function buildDescriptor(
   def: { id: string, template: string, slots?: Record<string, SlotDef> },

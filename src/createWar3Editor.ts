@@ -9,17 +9,17 @@ import type {
   War3ConditionDef,
   War3EditorState,
   War3EventDef
-} from './types'
+} from './core/types'
+import { War3Registry } from './core/registry'
+import { War3EditorStateManager } from './core/state'
 import {
   getActionDescriptor,
   getConditionDescriptor,
   getEventDescriptor,
   getSlotToolDescriptors,
   getToolDescriptor
-} from './descriptor'
-import { War3Registry } from './registry'
-import { resolveSlotValue, toTrigger } from './serializer'
-import { War3EditorStateManager } from './state'
+} from './presentation/descriptor'
+import { resolveSlotValue, toTrigger } from './serialization/serializer'
 
 export interface War3Editor extends Editor<War3EditorState> {
   // 注册

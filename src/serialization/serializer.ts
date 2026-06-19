@@ -1,6 +1,6 @@
 import type { Action, ActionNode, ConditionGroup, Event, Trigger, Value } from '@triggerix/core'
-import type { War3Registry } from './registry'
-import type { ItemState, SlotValueEntry, War3EditorState } from './types'
+import type { War3Registry } from '../core/registry'
+import type { ItemState, SlotValueEntry, War3EditorState } from '../core/types'
 
 /**
  * Recursively resolve a single slot value.

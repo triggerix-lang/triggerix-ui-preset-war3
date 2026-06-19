@@ -1,4 +1,4 @@
-import type { CompositeToolDef, LeafToolInput, SlotDef, War3ConditionDef } from './types'
+import type { CompositeToolDef, LeafToolInput, SlotDef, War3ConditionDef } from './core/types'
 
 /**
  * Type-safe LeafTool definition.

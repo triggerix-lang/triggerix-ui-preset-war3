@@ -1,6 +1,6 @@
-import type { War3Registry } from './registry'
-import type { SlotValueEntry } from './types'
-import { parseTemplate } from './parser'
+import type { War3Registry } from '../core/registry'
+import type { SlotValueEntry } from '../core/types'
+import { parseTemplate } from '../core/parser'
 
 /**
  * Compare two unknown values for equality. Primitives use strict equality;

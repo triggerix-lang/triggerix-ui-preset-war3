@@ -1,6 +1,6 @@
 import type { Preset } from '@triggerix/editor'
+import type { War3PresetOptions } from './core/types'
 import type { War3Editor } from './createWar3Editor'
-import type { War3PresetOptions } from './types'
 
 export function defineWar3Preset(options: War3PresetOptions): Preset<War3Editor> {
   return {

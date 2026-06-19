@@ -1,19 +1,6 @@
-export { createWar3Editor } from './createWar3Editor'
-export type { War3Editor } from './createWar3Editor'
-export {
-  getActionDescriptor,
-  getConditionDescriptor,
-  getEventDescriptor,
-  getSlotToolDescriptors,
-  getToolDescriptor
-} from './descriptor'
-export { resolveSlotDisplayText } from './display'
-export { defineCompositeTool, defineCondition, defineLeafTool } from './helpers'
-export { parseTemplate } from './parser'
-export { defineWar3Preset } from './preset'
-export { War3Registry } from './registry'
-export { resolveSlotValue, toTrigger } from './serializer'
-export { War3EditorStateManager } from './state'
+export { parseTemplate } from './core/parser'
+export { War3Registry } from './core/registry'
+export { War3EditorStateManager } from './core/state'
 export type {
   CompositeToolDef,
   CompositeToolDescriptor,
@@ -32,5 +19,18 @@ export type {
   War3EditorState,
   War3EventDef,
   War3PresetOptions
-} from './types'
+} from './core/types'
+export { createWar3Editor } from './createWar3Editor'
+export type { War3Editor } from './createWar3Editor'
+export { defineCompositeTool, defineCondition, defineLeafTool } from './helpers'
+export {
+  getActionDescriptor,
+  getConditionDescriptor,
+  getEventDescriptor,
+  getSlotToolDescriptors,
+  getToolDescriptor
+} from './presentation/descriptor'
+export { resolveSlotDisplayText } from './presentation/display'
+export { defineWar3Preset } from './preset'
+export { resolveSlotValue, toTrigger } from './serialization/serializer'
 export type { BaseItemDef, Preset } from '@triggerix/editor'
