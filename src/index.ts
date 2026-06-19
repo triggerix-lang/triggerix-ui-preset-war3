@@ -12,7 +12,7 @@ export { defineCompositeTool, defineCondition, defineLeafTool } from './helpers'
 export { parseTemplate } from './parser'
 export { defineWar3Preset } from './preset'
 export { War3Registry } from './registry'
-export { resolveSlotValue, toRule } from './serializer'
+export { resolveSlotValue, toTrigger } from './serializer'
 export { War3EditorStateManager } from './state'
 export type {
   CompositeToolDef,

@@ -1,4 +1,4 @@
-import type { Action, ActionNode, ConditionGroup, Event, Rule, Value } from '@triggerix/core'
+import type { Action, ActionNode, ConditionGroup, Event, Trigger, Value } from '@triggerix/core'
 import type { War3Registry } from './registry'
 import type { ItemState, SlotValueEntry, War3EditorState } from './types'
 
@@ -65,16 +65,16 @@ function serializeItems(
   })
 }
 
-function generateRuleId(): string {
+function generateTriggerId(): string {
   // Prefer crypto.randomUUID (browser / Node 18+)
   if (typeof globalThis.crypto?.randomUUID === 'function') {
     return globalThis.crypto.randomUUID()
   }
-  return `rule-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
+  return `trigger-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 }
 
 /**
- * Serialize editor state into a standard Rule JSON.
+ * Serialize editor state into a standard Trigger JSON.
  *
  * Output shape (compatible with @triggerix/core):
  *   {
@@ -82,11 +82,11 @@ function generateRuleId(): string {
  *     actions: [{ type, params? }]
  *   }
  */
-export function toRule(
+export function toTrigger(
   state: War3EditorState,
   registry: War3Registry,
-  ruleId?: string
-): Rule {
+  triggerId?: string
+): Trigger {
   const eventParams = state.event
     ? resolveItemParams(state.event.slotValues, registry)
     : undefined
@@ -98,8 +98,8 @@ export function toRule(
 
   const actions: ActionNode[] = serializeItems(state.actions, registry)
 
-  const rule: Rule = {
-    id: ruleId ?? generateRuleId(),
+  const trigger: Trigger = {
+    id: triggerId ?? generateTriggerId(),
     event,
     actions
   }
@@ -107,11 +107,11 @@ export function toRule(
   if (state.conditions.length > 0) {
     // Editor-level conditions actually use the Action shape ({ type, params }), which differs
     // from core's Condition; the runtime layer handles the mapping, so we cast to ConditionGroup here.
-    rule.conditions = {
+    trigger.conditions = {
       type: 'and',
       conditions: serializeItems(state.conditions, registry) as unknown as ConditionGroup['conditions']
     }
   }
 
-  return rule
+  return trigger
 }

@@ -18,7 +18,7 @@ import {
   getToolDescriptor
 } from './descriptor'
 import { War3Registry } from './registry'
-import { resolveSlotValue, toRule } from './serializer'
+import { resolveSlotValue, toTrigger } from './serializer'
 import { War3EditorStateManager } from './state'
 
 export interface War3Editor extends Editor<War3EditorState> {
@@ -73,7 +73,7 @@ export function createWar3Editor(): War3Editor {
     // --- Editor 接口 ---
     getState: () => stateManager.getState(),
     onChange: listener => stateManager.onChange(listener),
-    toRule: (ruleId?: string) => toRule(stateManager.getState(), registry, ruleId),
+    toTrigger: (triggerId?: string) => toTrigger(stateManager.getState(), registry, triggerId),
     reset: () => stateManager.reset(),
     dispose: () => stateManager.dispose(),
 
